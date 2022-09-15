@@ -3,7 +3,7 @@ import React from 'react'
 const Nav = () => {
     return(
         <div>
-            <h1>Nav</h1>
+            <h1 className='text-3xl text-blue-900'>Nav</h1>
         </div>
     )
 }
