@@ -4,20 +4,22 @@ import './App.css';
 
 // Component Imports
 import Nav from './components/Nav'
-import LandingPage from './components/LandingPage'
-import Portfolio from './components/Portfolio'
-import Contact from './components/Contact'
-import Resume from './components/Resume'
 import Footer from './components/Footer'
+
+// Pages Imports
+import About from './pages/About'
+import Portfolio from './pages/Portfolio'
+import Contact from './pages/Contact'
+import Resume from './pages/Resume'
 
 
 function App() {
-  const [ currentPage, handlePageChange] = useState('LandingPage')
+  const [ currentPage, handlePageChange] = useState('About')
 
   const renderPage = (currentPage) => {
     switch(currentPage) {
-      case 'LandingPage':
-        return <LandingPage />;
+      case 'About':
+        return <About />;
       case 'Portfolio':
         return <Portfolio />;
       case 'Contact':
@@ -33,12 +35,10 @@ function App() {
         <Nav currentPage={currentPage} handlePageChange={handlePageChange} />
         <div>
           <Routes>
-            <Route path='/' element={<LandingPage />} />
-            <Route path='/portfolio' element={<Portfolio />} />
-            <Route path='/contact' element={<Contact />} />
-            <Route path='/resume' element={<Resume />} />
-
-            <Route element={<LandingPage />} />
+            <Route exact path='/about' element={<About />} />
+            <Route exact path='/portfolio' element={<Portfolio />} />
+            <Route exact path='/contact' element={<Contact />} />
+            <Route exact path='/resume' element={<Resume />} />
           </Routes>
         </div>
       </Router>
